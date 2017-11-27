@@ -21,7 +21,7 @@ bool read (int & n, int * mas)
 void merge_s (int *mas , int l,int m, int r)
 {
   int *left = new int[m - l + 1];
-  int *right = new int[m-r];
+  int *right = new int[r-m];
   int i,j;
   int k;
   for (i = 0; i < (m - l +1); i++)
@@ -47,16 +47,18 @@ void merge_s (int *mas , int l,int m, int r)
     k++;
     }
    
-    while (i < m -l+1)
+    while (i < (m -l+1))
     {
       mas[k] = left[i];
       i++;
+      k++;
     }
        
     while (j < r-m) 
     {
       mas[k] = right[j];
       j++;
+      k++;
     }
   }
 
@@ -92,4 +94,4 @@ int main ()
        
                 else {cout << "An error has occured while reading input data." ; } 
    return 0;
- }
+}
