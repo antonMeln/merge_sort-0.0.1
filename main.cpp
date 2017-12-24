@@ -14,7 +14,11 @@ bool read (int & n, int * mas)
     
        for (int i=0;i<n;i++)
         {
-          if (!(stream >> mas[i])) { F = false; break;}
+          if (!(stream >> mas[i])) { 
+            F = false;
+            break;
+            
+          }
         }
    return F;
 }
@@ -86,12 +90,14 @@ int main ()
          if ( read (n , mas) ){
            for (i = 0; i < n; i++) {
               merge_sort(mas, 0, n-1);
-         } }
+            } 
+           
+         }
    
-   for (i = 0 ; i < n; i++)
-      cout << mas[i] << " ";
+         for (i = 0 ; i < n; i++)
+           cout << mas[i] << " ";
        }
+       else cout << "An error has occured while reading input data." ;  
        
-                else {cout << "An error has occured while reading input data." ; } 
    return 0;
 }
