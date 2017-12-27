@@ -8,20 +8,21 @@ bool read (int & n, int * mas)
   
   
   string str;
-   getline(cin,str);
-    istringstream stream(str);
-     bool F = true;
+  getline(cin,str);
+  istringstream stream(str);
+  bool F = true;
     
-       for (int i=0;i<n;i++)
-        {
-          if (!(stream >> mas[i])) { 
-            F = false;
-            break;
+  for (int i=0;i<n;i++){
+        
+      if (!(stream >> mas[i])) { 
+        F = false;
+        break;
             
-          }
-        }
+      }
+  }
    return F;
 }
+
 void merge_s (int *mas , int l,int m, int r)
 {
   int *left = new int[m - l + 1];
@@ -64,6 +65,8 @@ void merge_s (int *mas , int l,int m, int r)
       j++;
       k++;
     }
+    delete[] left;
+    delete[] right;
   }
 
 void merge_sort(int * mas, int left, int right)
@@ -79,12 +82,12 @@ void merge_sort(int * mas, int left, int right)
 
 int main ()
  { 
-  
-   int *mas = new int; 
-   int i,n;
-   string str;
-   getline(cin,str);
-   istringstream  stream (str);
+    int i,n;
+    int *mas = new int[n]; 
+   
+    string str;
+    getline(cin,str);
+    istringstream  stream (str);
     
        if (stream >> n ) {   
          if ( read (n , mas) ){
@@ -98,6 +101,6 @@ int main ()
            cout << mas[i] << " ";
        }
        else cout << "An error has occured while reading input data." ;  
-       
+   delete[] mas;    
    return 0;
 }
